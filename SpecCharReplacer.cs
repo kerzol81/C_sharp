@@ -9,6 +9,18 @@ static string SpecCharReplacer(string word, char[] from, char[] to) {
                 return word;
             }
 
-            return "from and to character array must be the same lenght";
+            return "[-] Error, The character arrays must be the same lenght";
         }
         
+/*
+TEST:
+static void Main(string[] args) {
+
+            char[] from = { 'á', 'é', 'ó' };
+            char[] to = { 'a', 'e', 'o' };
+
+            Console.Write(SpecCharReplacer("áááééé", from, to));
+
+            Console.ReadKey();
+        }
+*/
