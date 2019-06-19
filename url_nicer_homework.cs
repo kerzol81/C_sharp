@@ -24,8 +24,8 @@ namespace url_nicer {
 
         static void Main(string[] args) {
 
-            char[] from = { 'á', 'é', 'ó', 'ő', 'ű', ' ' };
-            char[] to = { 'a', 'e', 'o', 'o', 'u', '_' };
+            char[] from = { 'á', 'é', 'ó', 'ő', 'ú', 'ű', 'í', ' ' };
+            char[] to = { 'a', 'e', 'o', 'o', 'u','u', 'i', '_' };
 
             string url = null;
 
