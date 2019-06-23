@@ -16,10 +16,10 @@ namespace morse_2 {
                 code = Convert.ToString(csv_chunks[2]);
             }
         }
-        static void Beep(string word) {
-            for (int i = 0; i < word.Length; i++)
+        static void Beep(string code) {
+            for (int i = 0; i < code.Length; i++)
             {
-                if (word[i] == '.')
+                if (code[i] == '.')
                 {
                     Console.Beep(440, 150);
                 }
