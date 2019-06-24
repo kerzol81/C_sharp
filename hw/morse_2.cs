@@ -17,17 +17,17 @@ namespace morse_2 {
             }
         }
         static void Beep(string code) {
-            for (int i = 0; i < code.Length; i++)
+            for (int i = 0; i < code.Length -1; i++)
             {
                 if (code[i] == '.')
                 {
                     Console.Beep(440, 150);
                 }
                 else
-                    Console.Beep(440, 300);
+                    Console.Beep(440, 400);
             }
         }
-        static string Search(Morse[] morseTable, char c) {
+        static string SearchCode(Morse[] morseTable, char c) {
 
             int i = 0;
             while (i < morseTable.Length && morseTable[i].letter != c)
@@ -38,7 +38,20 @@ namespace morse_2 {
             {
                 return morseTable[i].code;
             }
-            return "";
+            return "no such code";
+        }
+
+        static string SearchWord(Morse[] morseTable, char c) {
+            int i = 0;
+            while (i < morseTable.Length && morseTable[i].letter != c)
+            {
+                i++;
+            }
+            if (i < morseTable.Length)
+            {
+                return morseTable[i].word;
+            }
+            return "unknown";
         }
 
 
@@ -53,12 +66,12 @@ namespace morse_2 {
             }
 
             char c;
-            Console.WriteLine("* * * * M O R S E * * * * \t\texit: *");
+            Console.WriteLine("\t* * * *  M O R S E  * * * * \t\texit: *");
             do
             {
-                c = Console.ReadKey().KeyChar;
-                Console.Write("|");
-                Beep(Search(morseTable, c));
+                c = Console.ReadKey(true).KeyChar;
+                Console.WriteLine("{0} \t\t\t {1} \t\t\t {2}", c, SearchWord(morseTable, c), SearchCode(morseTable, c));
+                Beep(SearchCode(morseTable, c));
             } while (c != '*');
 
             Console.ReadKey();
