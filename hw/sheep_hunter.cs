@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace hunting {
     class Program {
         static bool shoot = false;
+        static bool gameRunning = true;
+
         static void DisplayFence(char element)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -27,20 +29,51 @@ namespace hunting {
             }
         }
 
-        static void PlaceSheeps(byte n)
+        static void PlaceSheep()
         {
             int x = 0;
             int y = 0;
             Console.ForegroundColor = ConsoleColor.White;
             Random r = new Random();
-            for (int i = 0; i < n; i++)
-            {
-                x = r.Next(1, 80);
-                y = r.Next(1, 20);
-                Console.SetCursorPosition(x, y);
-                Console.Write("x");
-            }
+
+            x = r.Next(1, 80);
+            y = r.Next(1, 20);
+            Console.SetCursorPosition(x, y);
+            Console.Write("x");
+
             // move sheeps when shooting happens
+
+            do
+            {
+                if (shoot)
+                {
+                    Random d = new Random();
+                    int direction = d.Next(1, 5);
+                    Console.SetCursorPosition(x, y);
+                    Console.Write(" ");
+                    switch (direction)
+                    {
+                        case 1:
+                            Console.SetCursorPosition(x++, y);
+                            Console.Write("x");
+                            break;
+                        case 2:
+                            Console.SetCursorPosition(x--, y);
+                            Console.Write("x");
+                            break;
+                        case 3:
+                            Console.SetCursorPosition(x, y++);
+                            Console.Write("x");
+                            break;
+                        case 4:
+                            Console.SetCursorPosition(x, y++);
+                            Console.Write("x");
+                            break;
+                                                                                                        
+                    }
+
+                }
+            } while (gameRunning);
         }
 
         static void Shoot()
@@ -60,9 +93,9 @@ namespace hunting {
         static void Main(string[] args)
         {
             DisplayFence('#');
-            PlaceSheeps(1);
+            PlaceSheep();
             Shoot();
-
+            
             Console.ReadKey();
         }
     }
