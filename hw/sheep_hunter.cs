@@ -33,7 +33,7 @@ namespace hunting {
             for (int i = 0; i < n; i++)
             {
                 Console.SetCursorPosition(r.Next(1, 80), r.Next(1, 20));
-                Console.Write('x');
+                Console.Write("'o'");
             }
         }
 
