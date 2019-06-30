@@ -10,7 +10,7 @@ namespace hunting {
         {
             for (int i = 0; i < 21; i++)
             {
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.SetCursorPosition(0, i);
                 Console.Write(element);
                 Console.SetCursorPosition(81, i);
@@ -18,7 +18,7 @@ namespace hunting {
             }
             for (int i = 0; i < 81; i++)
             {
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.SetCursorPosition(i, 0);
                 Console.Write(element);
                 Console.SetCursorPosition(i, 20);
@@ -32,8 +32,8 @@ namespace hunting {
             Random r = new Random();
             for (int i = 0; i < n; i++)
             {
-                Console.SetCursorPosition(r.Next(1, 71), r.Next(1, 19));
-                Console.Write("'o'");
+                Console.SetCursorPosition(r.Next(1, 79), r.Next(1, 19));
+                Console.Write("x");
             }
         }
 
@@ -41,7 +41,14 @@ namespace hunting {
         static void Main(string[] args)
         {
             DisplayFence('#');
-            PlaceSheeps(5);
+            PlaceSheeps(6);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(0,22);
+            Console.Write("Shoot:\nX: ");
+            byte x = Convert.ToByte(Console.ReadLine());
+            Console.Write("Y: ");
+            byte y = Convert.ToByte(Console.ReadLine());
+            Console.SetCursorPosition(x, y);
 
 
             Console.ReadKey();
