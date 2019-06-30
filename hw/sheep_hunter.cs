@@ -32,7 +32,7 @@ namespace hunting {
             Random r = new Random();
             for (int i = 0; i < n; i++)
             {
-                Console.SetCursorPosition(r.Next(1, 80), r.Next(1, 20));
+                Console.SetCursorPosition(r.Next(1, 71), r.Next(1, 19));
                 Console.Write("'o'");
             }
         }
