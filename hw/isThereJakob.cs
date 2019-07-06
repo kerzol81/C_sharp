@@ -31,7 +31,6 @@ namespace _10
             return i <= names.Length;
         }
 
-
         static void Main(string[] args)
         {
             Console.Write("How many names will be? ");
@@ -82,7 +81,6 @@ namespace _10
                 {
                     Console.WriteLine(after[a]);
                 }
-
             }
             
             Console.WriteLine("--------");
