@@ -1,90 +1,91 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace isThereJakob_1 {
-    class Program {
-
-        static int HowManyStartsWithM(string[] names) {
+namespace _10
+{
+    class Program
+    {
+        static void CountM(string[] names)
+        {
             int total = 0;
-
             for (int i = 0; i < names.Length; i++)
             {
-                if (names[i].ToLower()[0] == 'm')
+                if (names[i][0] == 'm' || names[i][0] == 'M')
                 {
                     total++;
                 }
             }
-
-            return total;
+            Console.WriteLine($"There are {total} names that start with M.");
         }
 
-        static bool IsThereJakob(string[] names) {
-            bool answer = false;
-
+        static bool IsJakob(string[] names)
+        {
             int i = 0;
-            while (i < names.Length && names[i].ToLower() != "jakob")
+            while (i < names.Length && names[i].ToLower() != "jabob")
             {
                 i++;
             }
-            answer = i < names.Length;
-            return answer;
+            return i <= names.Length;
         }
 
-        static void SplitByH(string[] names) {
-            bool is_letter_H = false;
-            string[] beforeH = new string[names.Length];
-            string[] afterH = new string[names.Length];
-            int before_index = 0;
-            int after_index = 0;
 
-            for (int i = 0; i < names.Length; i++)
+        static void Main(string[] args)
+        {
+            Console.Write("How many names will be? ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] names = new string[n];
+            int i = 0;
+            while (i < names.Length)
             {
-                if (names[i][0] == 'H' || names[i][0] == 'h')
+                Console.Write($"Enter {i + 1}. name: ");
+                names[i] = Console.ReadLine();
+                i++;
+            }
+            Console.WriteLine(IsJakob(names));
+
+            string[] before = new string[n];
+            string[] after = new string[n];
+            int bindex = 0;
+            int aindex = 0;
+            bool H = false;
+
+            for (int a = 0; a < names.Length; a++)
+            {
+                if (names[a][0] == 'h' || names[a][0] == 'H')
                 {
-                    is_letter_H = true;
+                    H = true;
                 }
-                if (is_letter_H)
+                if (!H)
                 {
-                    beforeH[before_index] = names[i];
-                    before_index++;
+                    before[bindex] = names[a];
+                    bindex++;
                 }
                 else
                 {
-                    afterH[after_index] = names[i];
-                    after_index++;
+                    after[aindex] = names[a];
+                    aindex++;
                 }
-            }
 
-            if (is_letter_H)
+            }
+            if (H)
             {
-                Console.WriteLine("Before H: ");
-                for (int n = 0; n < beforeH.Length; n++)
+                Console.WriteLine("Before H:");
+                for (int b = 0; b < before.Length; b++)
                 {
-                    Console.WriteLine(beforeH[n]);
+                    Console.WriteLine(before[b]);
+                }
+                Console.WriteLine("After H:");
+                for (int a = 1; a < after.Length; a++) // exclude H
+                {
+                    Console.WriteLine(after[a]);
                 }
 
-                Console.WriteLine("After H: ");
-                for (int n = 1; n < afterH.Length; n++)
-                {
-                    Console.WriteLine(afterH[n]);
-                }
             }
-        }
-
-
-        static void Main(string[] args) {
-            Console.WriteLine("How many names will be? ");
-            int n = Convert.ToInt32(Console.ReadLine());
-            string[] names = new string[n];
-
-            for (int i = 0; i < names.Length; i++)
-            {
-                Console.WriteLine($"Enter {i + 1} name: ");
-                names[i] = Convert.ToString(Console.ReadLine());
-            }
-            Console.WriteLine("is there jakob? {0}", IsThereJakob(names));
-            Console.WriteLine("Number of m letter names: {0}", HowManyStartsWithM(names));
-            SplitByH(names);
-
+            
+            Console.WriteLine("--------");
             Console.ReadKey();
         }
     }
