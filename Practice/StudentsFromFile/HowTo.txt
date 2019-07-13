@@ -1,0 +1,15 @@
+1. create Student class,
+	- auto implemented properties
+	- constructor
+
+2. ReadIntoArray() read file into a string[] data
+
+3. create a Student[] students ; lenght: (data / 2)
+
+4. loop over the array:
+	- instantiate Student 
+	- fill up
+
+5. Average() -> double average
+6. Best() -> string name
+7. Worst() -> string name
