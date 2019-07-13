@@ -69,8 +69,15 @@ namespace _01_StudentsFromFile_OOP2
             Console.WriteLine(Best(students));
             Console.WriteLine(Worst(students));
 
+            Console.WriteLine("\nThe class:\n");
+            foreach (Student student in students)
+            {
+                Console.WriteLine($"{student.Name}, Average: {student.Average}");
+            }
+
             Console.ReadKey();
         }
-       
+
+        
     }
 }
