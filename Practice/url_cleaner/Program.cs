@@ -12,7 +12,7 @@ namespace _04_urlNicer
 
         static void Main(string[] args)
         {
-            Url u = new Url("http://www.ádáméáí.hu");
+            Url u = new Url("http://www.ádáméáí.com");
 
             Console.WriteLine(u.Nicer());
                                   
