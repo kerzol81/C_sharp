@@ -1,0 +1,5 @@
+<connectionStrings>
+     
+     <add name="first" connectionString="<copied>"; AttachDbFilename=|DataDirectory|first.mdf; Integrated; Security=True"/>
+
+</connectionStrings>
