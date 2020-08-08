@@ -10,3 +10,7 @@ NUGET:
 
 System.Data.SQLite.Core
 Dapper
+
+add ref:
+
+Configuration.Manager  --> deals with App.config
