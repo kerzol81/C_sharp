@@ -1,0 +1,4 @@
+interface ICSVFormat
+    {
+        string CSVFormat();
+    }
