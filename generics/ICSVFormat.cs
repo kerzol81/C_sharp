@@ -1,4 +1,4 @@
 interface ICSVFormat
     {
-        string CSVFormat();
+        string CSVFormat(char separator=';');
     }
