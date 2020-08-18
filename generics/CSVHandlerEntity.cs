@@ -8,6 +8,5 @@ static class CSVHandlerEntity<T> where T: ICSVFormat
                 s.WriteLine(item.CSVFormat());
             }
             s.Close();
-        }
-        
+        }      
     }
