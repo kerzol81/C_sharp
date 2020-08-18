@@ -41,12 +41,12 @@ class Planet : ICSVFormat
 
         public string CSVFormat(char separator = ';')
         {
-            return $"{Name}{separator}{Observed}";
+            return $"{name}{separator}{observed}";
         }
 
         public override string ToString()
         {
-            return $"{Name} - {Observed}";
+            return $"{name} - {observed}";
         }
 
     }
