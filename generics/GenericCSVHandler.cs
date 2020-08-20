@@ -1,8 +1,17 @@
   // Code is inspired by Tim Corey's generics tutorial
 
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+
+namespace Planets_Generics
+{
     static class CSVHandlerEntity<T> where T : ICSVFormat, new()
     {
-        public static void Write(List<T> items, string path)
+        public static void WriteWithHeaders(List<T> items, string path)
         {
             List<string> csvlines = new List<string>();
             StringBuilder line = new StringBuilder();
@@ -27,7 +36,7 @@
             }
             File.WriteAllLines(path, csvlines);
         }
-        public static List<T> Read(string path)
+        public static List<T> ReadWithHeaders(string path)
         {
 
             var lines = File.ReadAllLines(path).ToList();
@@ -61,4 +70,15 @@
             }
             return objects;
         }
+        public static void WriteHeaderless(List<T> items, string path)
+        {
+            StreamWriter s = new StreamWriter(path);
+            foreach (var item in items)
+            {
+                s.WriteLine(item.CSVFormat());
+            }
+            s.Close();
+        }
     }
+}
+
