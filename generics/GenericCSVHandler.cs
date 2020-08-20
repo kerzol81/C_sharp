@@ -23,10 +23,40 @@
                 }
                 csvlines.Add(line.ToString().Substring(0, line.Length - 1)); // 1 line, and ; removed from the end
             }
-            File.WriteAllLines(path, csvlines);            
+            File.WriteAllLines(path, csvlines);
         }
         public static List<T> Read(string path)
         {
-            return null;
+
+            var lines = File.ReadAllLines(path).ToList();
+            if (lines.Count < 2)
+            {
+                throw new IndexOutOfRangeException("The input file is empty");
+            }
+            List<T> objects = new List<T>();
+            var template = new T();
+            var columns = template.GetType().GetProperties(); // reflexion 
+
+            var header = lines[0].Split(';');
+            lines.RemoveAt(0);                  // remove the header
+
+            foreach (var row in lines)
+            {
+                template = new T();
+                var properties = row.Split(';');
+
+                for (int i = 0; i < header.Length; i++)
+                {
+                    foreach (var column in columns)
+                    {
+                        if (column.Name == header[i])
+                        {
+                            column.SetValue(template, Convert.ChangeType(properties[i], column.PropertyType));
+                        }
+                    }
+                }
+                objects.Add(template);
+            }
+            return objects;
         }
     }
