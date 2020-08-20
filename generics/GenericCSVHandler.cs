@@ -1,3 +1,5 @@
+  // Code is inspired by Tim Corey's generics tutorial
+
     static class CSVHandlerEntity<T> where T : ICSVFormat, new()
     {
         public static void Write(List<T> items, string path)
