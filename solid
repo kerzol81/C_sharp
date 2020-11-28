@@ -5,3 +5,6 @@
 [LSP] Liskov Substitution Principle :
 
 [DRY] Dont Repeat Yourself : never write anythink twice
+
+[DIP] Dependency Inversion Principle : high level modules should not depend on low leve modules but bow should depend on abstarcions 
+                                       and those abstractions should not depend on deteails
