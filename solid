@@ -1,11 +1,12 @@
+[SRP] Single Responsibility Principle :
+
+[OCP] Open Closed Principle
+
+[LSP] Liskov Substitution Principle :
+
 [ISP] Interface Segregation Principle : a client should not be forced to depent on interfaces they don't use.
       - break the intrface down into smaller pieces that clients can agree on that, make the interface more modular.
       
-      
-[LSP] Liskov Substitution Principle :
-
-[DRY] Dont Repeat Yourself : never write anythink twice
-
 [DIP] Dependency Inversion Principle : high level modules should not depend on low leve modules but bow should depend on abstarcions 
                                        and those abstractions should not depend on deteails
       - resolve this with Interface, 
