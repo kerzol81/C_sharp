@@ -8,3 +8,5 @@
 
 [DIP] Dependency Inversion Principle : high level modules should not depend on low leve modules but bow should depend on abstarcions 
                                        and those abstractions should not depend on deteails
+      - resolve this with Interface, 
+      "those abstractions" shouldn't have to know about how things get done, they should just say that these ar the things will get done
