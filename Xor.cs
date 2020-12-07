@@ -5,6 +5,7 @@ namespace FileSyncer.Control
     static class Xor
     {
         private static readonly string key = "AABB";
+        
         public static string Encrypt(string plain_password)
         {
             // https://stackoverflow.com/a/19297948
