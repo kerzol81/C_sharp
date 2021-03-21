@@ -1,2 +1,3 @@
 byte --> TINYINT
 bool --> BIT
+float --> FLOAT
